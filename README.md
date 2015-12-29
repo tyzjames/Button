@@ -1,10 +1,10 @@
-# PressButton
+# Button
 Read an input switch on an Arduino pin and determine the press status
 
 <h2>Steps</h2>
 - Initialize the switch
 ```c++
-PressButton pb1(pin, button_state, read_type)
+Button pb1(pin, button_state, read_type)
 ```
 Type|Parameter|Description
 ---|---|---
@@ -15,10 +15,10 @@ boolean|read_type | If true, switch will read long presses.
 - Read switch status
 ```c++
 
-#include <PressButton.h>
+#include <Button.h>
 #define SW1 5
 
-PressButton pb1 (SW1, HIGH, false);
+Button pb1 (SW1, HIGH, false);
 
 setup(){
 
@@ -49,14 +49,14 @@ If read_type == true, short presses will only be read on-release instead of on-p
 To read multiple switches, see example:
 ```c++
 
-#include <PressButton.h>
+#include <Button.h>
 #define SW1 5
 #define SW2 6
 
-PressButton pb1 (SW1, HIGH, false);
-PressButton pb2 (SW2, HIGH, false);
+Button pb1 (SW1, HIGH, false);
+Button pb2 (SW2, HIGH, false);
 
-PressButton arr_pb[] = {pb1, pb2); //Add switches into an array
+Button arr_pb[] = {pb1, pb2); //Add switches into an array
 
 setup(){
   Serial.begin(9600);
