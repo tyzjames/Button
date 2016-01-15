@@ -24,6 +24,24 @@ bool Button::is_pressed()
       this->_previousMillis = millis();
       return true;
   }
+  return false;
+}
+
+bool Button::is_pressed(int inDebounce)
+{
+  if (digitalRead(this->_pin) == LOW && millis() - this->_previousMillis > inDebounce) {
+      this->_previousMillis = millis();
+      return true;
+  }
+  return false;
+}
+
+bool Button::is_released(int inDebounce) {
+  if (digitalRead(this->_pin) == HIGH && millis() - this->_previousMillis > inDebounce) {
+      this->_previousMillis = millis();
+      return true;
+  }
+  return false;
 }
 
 void Button::read_switch(){
@@ -44,4 +62,8 @@ bool Button::get_status() {
 
 void Button::reset(){
   this->_on_press = false;
+}
+
+void Button::set_debounce(int inDebounce) {
+  this->_debounce = inDebounce;
 }

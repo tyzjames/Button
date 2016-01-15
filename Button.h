@@ -12,7 +12,10 @@ class Button
     bool get_status();
     void read_switch();
     bool is_pressed();
+    bool is_pressed(int inDebounce);
+    bool is_released(int inDebounce);
     void reset();
+    void set_debounce(int inDebounce);
 
   private:
     int _pin;
