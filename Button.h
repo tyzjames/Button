@@ -16,6 +16,7 @@ class Button
     bool is_released(int inDebounce);
     void reset();
     void set_debounce(int inDebounce);
+    void set_status(bool inType);
 
   private:
     int _pin;

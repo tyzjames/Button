@@ -27,6 +27,10 @@ bool Button::is_pressed()
   return false;
 }
 
+void Button::set_status(bool inType) {
+  this->_on_press = true;
+}
+
 bool Button::is_pressed(int inDebounce)
 {
   if (digitalRead(this->_pin) == LOW && millis() - this->_previousMillis > inDebounce) {
